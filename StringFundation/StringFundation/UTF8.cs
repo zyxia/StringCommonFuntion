@@ -13,7 +13,7 @@ namespace StringFundation
             while (result != end)
             {
                 int t = 0;
-                utf_error err_code = validate_next(in source,ref result, end,t);
+                utf_error err_code = validate_next(ref source,ref result, end,ref t);
                 if (err_code != utf_error.UTF8_OK)
                     return result>= end;
             }
@@ -26,22 +26,23 @@ namespace StringFundation
         {
             return (byte)(0xff & oc);
         }
-        static int sequence_length(in string src,int lead_it)
-    {
-        byte lead = mask8(src[lead_it]);
-        if (lead< 0x80)
-            return 1;
-        else if ((lead >> 5) == 0x6)
-            return 2;
-        else if ((lead >> 4) == 0xe)
-            return 3;
-        else if ((lead >> 3) == 0x1e)
-            return 4;
-        else
-            return 0;
-    }
 
-        static utf_error get_sequence_1(in string src,int it, int end, ref int code_point)
+        static int sequence_length(ref string src,int lead_it)
+        {
+            byte lead = mask8(src[lead_it]);
+            if (lead< 0x80)
+                return 1;
+            else if ((lead >> 5) == 0x6)
+                return 2;
+            else if ((lead >> 4) == 0xe)
+                return 3;
+            else if ((lead >> 3) == 0x1e)
+                return 4;
+            else
+                return 0;
+        }
+
+        static utf_error get_sequence_1(ref string src,int it, int end, ref int code_point)
         {
             if (it == end)
                 return utf_error.NOT_ENOUGH_ROOM;
@@ -52,10 +53,10 @@ namespace StringFundation
         }
 
         static bool is_trail(char oc)
-    {
-            return ((mask8(oc) >> 6) == 0x2);
-    }
-        static utf_error increase_safely(in string src, int it, int end)
+        {
+                return ((mask8(oc) >> 6) == 0x2);
+        }
+        static utf_error increase_safely(ref string src, int it, int end)
         {
             if (++it == end)
                 return utf_error.NOT_ENOUGH_ROOM;
@@ -64,9 +65,9 @@ namespace StringFundation
             return utf_error.INCOMPLETE_SEQUENCE;
 
         return utf_error.UTF8_OK;
-    }
+        }
 
-        static utf_error get_sequence_2(in string src, int it, int end, ref int code_point)
+        static utf_error get_sequence_2(ref string src, int it, int end, ref int code_point)
         {
             if (it == end)
                 return utf_error.NOT_ENOUGH_ROOM;
@@ -74,7 +75,7 @@ namespace StringFundation
             code_point = mask8(src[it]);
 
 
-            utf_error ret = increase_safely(src,it, end);
+            utf_error ret = increase_safely(ref src,it, end);
             if (ret != utf_error.UTF8_OK) return ret;
           
 
@@ -84,7 +85,7 @@ namespace StringFundation
         }
 
 
-        static utf_error get_sequence_3(in string src, int it, int end, ref int code_point)
+        static utf_error get_sequence_3(ref string src, int it, int end, ref int code_point)
 {
     if (it == end)
         return utf_error.NOT_ENOUGH_ROOM;
@@ -92,14 +93,14 @@ namespace StringFundation
      code_point = mask8(src[it]);
 
             {
-                utf_error ret1 = increase_safely(src, it, end);
+                utf_error ret1 = increase_safely(ref src, it, end);
                 if (ret1 != utf_error.UTF8_OK) return ret1;
             }
 
 
             code_point = ((code_point << 12) & 0xffff) + ((mask8(src[it]) << 6) & 0xfff);
 
-            utf_error ret2 = increase_safely(src, it, end);
+            utf_error ret2 = increase_safely(ref src, it, end);
             if (ret2 != utf_error.UTF8_OK) return ret2;
 
             code_point += (src[it]) & 0x3f;
@@ -108,24 +109,24 @@ namespace StringFundation
     }
 
 
-        static utf_error get_sequence_4(in string src, int it, int end, ref int code_point)
+        static utf_error get_sequence_4(ref string src, int it, int end, ref int code_point)
 {
     if (it == end)
         return utf_error.NOT_ENOUGH_ROOM;
 
             code_point = mask8(src[it]);
 
-            utf_error ret2 = increase_safely(src, it, end);
+            utf_error ret2 = increase_safely(ref src, it, end);
             if (ret2 != utf_error.UTF8_OK) return ret2;
 
             code_point = ((code_point << 18) & 0x1fffff) + ((mask8(src[it]) << 12) & 0x3ffff);
 
-            ret2 = increase_safely(src, it, end);
+            ret2 = increase_safely(ref src, it, end);
             if (ret2 != utf_error.UTF8_OK) return ret2;
 
             code_point += (mask8(src[it]) << 6) & 0xfff;
 
-            ret2 = increase_safely(src, it, end);
+            ret2 = increase_safely(ref src, it, end);
             if (ret2 != utf_error.UTF8_OK) return ret2;
 
             code_point += (src[it]) & 0x3f;
@@ -137,11 +138,11 @@ namespace StringFundation
     {
             return (cp <= CODE_POINT_MAX && !is_surrogate(cp));
     }
-        static readonly    UInt16 LEAD_SURROGATE_MIN = (UInt16)0xd800u;
+        static readonly    UInt16 LEAD_SURROGATE_Mref = (UInt16)0xd800u;
         static readonly UInt16 TRAIL_SURROGATE_MAX = (UInt16)0xdfffu;
         static bool is_surrogate(UInt32 cp)
     {
-        return (cp >= LEAD_SURROGATE_MIN && cp <= TRAIL_SURROGATE_MAX);
+        return (cp >= LEAD_SURROGATE_Mref && cp <= TRAIL_SURROGATE_MAX);
     }
 
         static bool is_overlong_sequence(UInt32 cp, int length)
@@ -164,19 +165,19 @@ namespace StringFundation
 
             return false;
         }
-        static utf_error validate_next(in string src, ref int it, int end, ref int code_point)
+        static utf_error validate_next(ref string src, ref int it, int end, ref int code_point)
     {
             if (it == end)
                 return utf_error.NOT_ENOUGH_ROOM;
 
-            // Save the original value of it so we can go back in case of failure
+            // Save the original value of it so we can go back ref case of failure
             // Of course, it does not make much sense with i.e. stream iterators
             int original_it = it;
 
             Int32 cp = 0;
             // Determine the sequence length based on the lead octet
    
-            int length = sequence_length(src,it);
+            int length = sequence_length(ref src, it);
 
         // Get trail octets and calculate the code point
                 utf_error err = utf_error.UTF8_OK;
@@ -184,16 +185,16 @@ namespace StringFundation
                     case 0:
                         return utf_error.INVALID_LEAD;
                     case 1:
-                        err = get_sequence_1(src,it, end, ref cp);
+                        err = get_sequence_1(ref src, it, end, ref cp);
                         break;
                     case 2:
-                        err = get_sequence_2(src,it, end, ref cp);
+                        err = get_sequence_2(ref src, it, end, ref cp);
                     break;
                     case 3:
-                        err = get_sequence_3(src,it, end, ref cp);
+                        err = get_sequence_3(ref src, it, end, ref cp);
                     break;
                     case 4:
-                        err = get_sequence_4(src,it, end,ref cp);
+                        err = get_sequence_4(ref src, it, end,ref cp);
                     break;
                 }
 

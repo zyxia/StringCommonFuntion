@@ -1,0 +1,11 @@
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.csprojAssemblyReference.cache
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.csproj.CoreCompileInputs.cache
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.AssemblyInfoInputs.cache
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.AssemblyInfo.cs
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\bin\Debug\netcoreapp2.1\StringFundation.deps.json
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\bin\Debug\netcoreapp2.1\StringFundation.runtimeconfig.json
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\bin\Debug\netcoreapp2.1\StringFundation.runtimeconfig.dev.json
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\bin\Debug\netcoreapp2.1\StringFundation.dll
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\bin\Debug\netcoreapp2.1\StringFundation.pdb
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.dll
+C:\xia\StringCommonFuntion\StringFundation\StringFundation\obj\Debug\netcoreapp2.1\StringFundation.pdb
