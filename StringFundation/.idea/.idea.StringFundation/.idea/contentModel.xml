@@ -32,6 +32,10 @@
       <e p="StringFundation.Test" t="IncludeRecursive">
         <e p="assis.txt" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="classnametest.txt" t="Include" />
+        <e p="Compiler" t="Include">
+          <e p="getClassName.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

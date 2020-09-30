@@ -23,16 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8160a60c-ab87-41b7-8bf3-e2deb44dc695" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.vs/StringFundation/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/StringFundation/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation.sln" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/StringFundation.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/StringFundation.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/UTF8.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/UTF8.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/Debug/netcoreapp3.1/StringFundation.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/Debug/netcoreapp3.1/StringFundation.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/StringFundation.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StringFundation/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StringFundation.Test/Compiler/getClassName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StringFundation/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StringFundation/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StringFundation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StringFundation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.Test/bin/Debug/netcoreapp2.1/StringFundation.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.Test/bin/Debug/netcoreapp2.1/StringFundation.Test.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.Test/bin/Debug/netcoreapp2.1/StringFundation.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.Test/bin/Debug/netcoreapp2.1/StringFundation.Test.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.Test/obj/Debug/netcoreapp2.1/StringFundation.Test.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StringFundation.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/StringFundation.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
         <option value="$PROJECT_DIR$/StringFundation/UTF8.cs" />
         <option value="$PROJECT_DIR$/StringFundation/StringFundation.csproj" />
         <option value="$PROJECT_DIR$/StringFundation.Test/UTF8Test.cs" />
+        <option value="$PROJECT_DIR$/StringFundation.Test/Compiler/getClassName.cs" />
       </list>
     </option>
   </component>
@@ -101,6 +101,7 @@
       <updated>1601349610390</updated>
       <workItem from="1601349617082" duration="22000" />
       <workItem from="1601351523451" duration="2850000" />
+      <workItem from="1601372706106" duration="2864000" />
     </task>
     <servers />
   </component>
@@ -209,5 +210,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="723" y="432" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1400@0.0.2560.1400" timestamp="1601351615648" />
+    <state x="939" y="432" width="683" height="536" key="find.popup" timestamp="1601373593588">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="939" y="432" width="683" height="536" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1601373593588" />
   </component>
 </project>
