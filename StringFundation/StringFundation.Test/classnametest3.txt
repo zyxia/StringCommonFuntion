@@ -1,0 +1,4 @@
+namespace NodeCanvas.Framework
+{
+class Blackboard {}
+}
