@@ -19,12 +19,15 @@ namespace Unikon.serialize
             TonkenParser parser = new TonkenParser(reader);
             string token = "";
             string classname = "";
-            token = parser.NextToken();
+           // token = parser.NextToken();
             LinkedList<string> namespaces = new LinkedList<string>();
             int n_name_space_deep = 0;
             while (true)
             { 
                 token = parser.NextToken();
+                if (token == null)
+                    break;
+                
                 if (token == ""||
                     token == "public"||
                     token == "sealed" ||

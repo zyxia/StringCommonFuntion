@@ -70,11 +70,13 @@ namespace CodeConfusion
         }
         public string NextToken()
         {
-            string result = "";
+            string result = null;
           
          
             while (!reader.EndOfStream)
             {
+                if (result == null)
+                    result = "";
                 reader.DiscardBufferedData();
                 reader.BaseStream.Seek(i, SeekOrigin.Begin);
                 if (gStringState == null && gCommentState == null)
